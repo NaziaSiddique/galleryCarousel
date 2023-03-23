@@ -11,3 +11,5 @@ console.log(imgWidth);
 function setImgPosition(img, index) {
   img.style.left = imgWidth * index + "px";
 }
+
+imgs.forEach(setImgPosition);
