@@ -33,3 +33,15 @@ nextBtn.addEventListener('click', function () {
 /*
 When left button is clicked, move images to the right.
 */
+
+prevBtn.addEventListener("click", function () {
+  const currentImg = list.querySelector(".current-img");
+  const prevImg = currentImg.previousElementSibling;
+  const prevIndex = imgs.findIndex(function (img) {
+    img === prevImg;
+  });
+
+  list.style.transform = 'translateX(-" + prevImg.style.left + ")';
+  currentImg.classList.remove('current-img');
+  prevImg.classList.add('current-img');
+});
