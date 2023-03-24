@@ -19,8 +19,15 @@ When right button is clicked, move images to the left.
 */
 
 nextBtn.addEventListener('click', function () {
-  const currentImg = list.querySelector('.current-image');
+  const currentImg = list.querySelector('.current-img');
   const nextImg = currentImg.nextElementSibling;
+  const nextIndex = imgs.findIndex(function (img) {
+    img === nextImg;
+  });
+
+  list.style.transform = 'translateX(-" + nextImg.style.left + ")';
+  currentImg.classList.remove("current-img");
+  nextImg.classList.add("current-img");
 });
 
 /*
