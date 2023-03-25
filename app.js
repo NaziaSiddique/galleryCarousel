@@ -42,9 +42,7 @@ When right button is clicked, move images to the left.
 nextBtn.addEventListener("click", function () {
   const currentImg = list.querySelector(".current-img");
   const nextImg = currentImg.nextElementSibling;
-  const nextIndex = imgs.findIndex(function (img) {
-    img === nextImg;
-  });
+  const nextIndex = imgs.findIndex((img) => img === nextImg);
 
   moveToImg(list, currentImg, nextImg);
   hideShowArrows(imgs, prevBtn, nextBtn, nextIndex);
@@ -57,9 +55,7 @@ When left button is clicked, move images to the right.
 prevBtn.addEventListener("click", function () {
   const currentImg = list.querySelector(".current-img");
   const prevImg = currentImg.previousElementSibling;
-  const prevIndex = imgs.findIndex(function (img) {
-    img === prevImg;
-  });
+  const prevIndex = imgs.findIndex((img) => img === prevImg);
 
 moveToImg(list, currentImg, prevImg);
 hideShowArrows(imgs, prevBtn, nextBtn, prevIndex);
