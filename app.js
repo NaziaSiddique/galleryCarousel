@@ -14,6 +14,12 @@ function setImgPosition(img, index) {
 
 imgs.forEach(setImgPosition);
 
+// moveTooImg Function 
+const moveToImg = function (list, currentImg, targetImg) {
+  list.style.transform = "translateX(-" + targetImg.style.left + ")";
+  currentImg.classList.remove("current-img");
+  targetImg.classList.add("current-img");
+};
 /*
 When right button is clicked, move images to the left.
 */
@@ -41,7 +47,6 @@ prevBtn.addEventListener("click", function () {
     img === prevImg;
   });
 
-  list.style.transform = 'translateX(-" + prevImg.style.left + ")';
-  currentImg.classList.remove('current-img');
-  prevImg.classList.add('current-img');
+  moveToImg(list, currentImg, prevImg);
+
 });
