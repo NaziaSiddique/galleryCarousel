@@ -20,6 +20,21 @@ const moveToImg = function (list, currentImg, targetImg) {
   currentImg.classList.remove("current-img");
   targetImg.classList.add("current-img");
 };
+
+//Hide/Show Arrows
+const hideShowArrows = function (imgs, prevBtn, nextBtn, targetIndex) {
+  if (targetIndex === 0) {
+    prevBtn.classList.add("hidden");
+    nextBtn.classList.remove("hidden");
+  } else if (targetIndex === imgs.length - 1) {
+    prevBtn.classList.remove("hidden");
+    nextBtn.classList.add("hidden");
+  } else {
+    prevBtn.classList.remove("hidden");
+    nextBtn.classList.remove("hidden");
+  }
+};
+
 /*
 When right button is clicked, move images to the left.
 */
@@ -32,6 +47,7 @@ nextBtn.addEventListener("click", function () {
   });
 
   moveToImg(list, currentImg, nextImg);
+  hideShowArrows(imgs, prevBtn, nextBtn, nextIndex);
 });
 
 /*
@@ -45,6 +61,6 @@ prevBtn.addEventListener("click", function () {
     img === prevImg;
   });
 
-  moveToImg(list, currentImg, prevImg);
-
+moveToImg(list, currentImg, prevImg);
+hideShowArrows(imgs, prevBtn, nextBtn, prevIndex);
 });
